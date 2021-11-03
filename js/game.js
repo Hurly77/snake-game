@@ -18,7 +18,7 @@ function isGameOver() {
 function endGame() {
  clearInterval(timer);
  confirm('Play again');
- window.location = '/';
+ window.location = 'https://hurly77.github.io/snake-game/';
 }
 
 function start() {
