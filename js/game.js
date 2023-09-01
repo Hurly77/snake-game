@@ -6,9 +6,12 @@ import {
 } from './snake.js';
 import { addFood, updateFood, eatApple, isApple } from './food.js';
 import { button, board } from './selectors.js';
+import { gameOverModal } from './menu.js';
 
 let timer;
 let pause = false;
+
+button.textContent = "Pause"
 
 function isGameOver() {
  let sb = snakeBody[0];
@@ -17,8 +20,7 @@ function isGameOver() {
 
 function endGame() {
  clearInterval(timer);
- confirm('Play again');
- window.location = 'https://hurly77.github.io/snake-game/';
+ gameOverModal()
 }
 
 function start() {
@@ -39,7 +41,9 @@ button.addEventListener('click', () => {
  pause = !pause;
  if (pause) {
   clearInterval(timer);
+  button.textContent = "Resume"
  } else {
+  button.textContent = "Pause"
   timer = setInterval(start, 100);
  }
 });
