@@ -37,7 +37,8 @@ function start() {
 
 addFood();
 
-button.addEventListener('click', () => {
+
+function pauseGame(){
  pause = !pause;
  if (pause) {
   clearInterval(timer);
@@ -46,6 +47,17 @@ button.addEventListener('click', () => {
   button.textContent = "Pause"
   timer = setInterval(start, 100);
  }
+}
+
+
+button.addEventListener('click', () => {
+ pauseGame()
 });
+
+window.addEventListener('keydown', (e) => {
+ if (e.key === "Escape"){
+  pauseGame()
+ }
+})
 
 timer = setInterval(start, 100);
